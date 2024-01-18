@@ -19,7 +19,7 @@ export default function Avatar({ image, className }: AvatarProps) {
       gsap.fromTo(
         ".avatar",
         { opacity: 0, scale: 1.4 },
-        { opacity: 1, scale: 1, duration: 1.3, ease: "power3.inOut" }
+        { opacity: 1, scale: 1, duration: 1.3, ease: "power3.inOut" },
       );
 
       window.onmousemove = (e) => {
@@ -45,7 +45,7 @@ export default function Avatar({ image, className }: AvatarProps) {
               rotation: gsap.utils.clamp(-2, 2, 5 * componentPercent.x),
               duration: 0.5,
             },
-            0
+            0,
           )
           .to(
             ".highlight",
@@ -54,7 +54,7 @@ export default function Avatar({ image, className }: AvatarProps) {
               x: (-10 + 20) & componentPercent.x,
               duration: 0.5,
             },
-            0
+            0,
           );
       };
     }, component);
@@ -62,10 +62,7 @@ export default function Avatar({ image, className }: AvatarProps) {
 
   return (
     <div ref={component} className={clsx("relative h-full w-full", className)}>
-      <div
-        className="avatar aspect-square overflow-hidden rounded-3xl border-2 border-slate-700 opacity-0"
-        style={{ perspective: "500px", perspectiveOrigin: "150% 150%" }}
-      >
+      <div className="avatar aspect-square overflow-hidden rounded-3xl border-2 border-slate-700 opacity-0">
         <PrismicNextImage
           field={image}
           className="avatar-image h-full w-full object-fill"

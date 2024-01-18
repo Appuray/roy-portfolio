@@ -1,14 +1,14 @@
 "use client";
 
-import Bounded from "@/components/Bounded";
-import Heading from "@/components/Heading";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import React, { useEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { MdCircle } from "react-icons/md";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import Bounded from "@/components/Bounded";
+import Heading from "@/components/Heading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,14 +23,15 @@ export type TechListProps = SliceComponentProps<Content.TechListSlice>;
 const TechList = ({ slice }: TechListProps): JSX.Element => {
   const component = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let ctx = gsap.context(() => {
+      // create as many GSAP animations and/or ScrollTriggers here as you want...
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: component.current,
+          pin: true, // pin the trigger element while active
           start: "top bottom",
           end: "bottom top",
-          scrub: 5,
+          scrub: 4,
         },
       });
 
@@ -50,16 +51,17 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
               : gsap.utils.random(600, 400);
           },
           ease: "power1.inOut",
-        }
+        },
       );
     }, component);
-    return () => ctx.revert(); // cleanup
-  });
+    return () => ctx.revert(); // cleanup!
+  }, []);
 
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="wrapper overflow-hidden"
       ref={component}
     >
       <Bounded as="div">
@@ -67,16 +69,19 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
           {slice.primary.heading}
         </Heading>
       </Bounded>
+
       {slice.items.map(({ tech_color, tech_name }, index) => (
         <div
           key={index}
           className="tech-row mb-8 flex items-center justify-center gap-4 text-slate-700"
-          aria-label={tech_name || undefined}
+          aria-label={tech_name || ""}
         >
           {Array.from({ length: 15 }, (_, index) => (
             <React.Fragment key={index}>
               <span
-                className="tech-item text-8xl font-extrabold uppercase tracking-tighter"
+                className={
+                  "tech-item text-8xl font-extrabold uppercase tracking-tighter"
+                }
                 style={{
                   color: index === 7 && tech_color ? tech_color : "inherit",
                 }}
