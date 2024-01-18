@@ -9,7 +9,7 @@ import gsap from "gsap";
 /**
  * Props for `Hero`.
  */
-export type HeroProps = SliceComponentProps<Content.HEroSlice>;
+export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
 /**
  * Component for "Hero" Slices.

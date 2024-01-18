@@ -102,7 +102,7 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomepageDocumentDataSlicesSlice = HEroSlice;
+type HomepageDocumentDataSlicesSlice = HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -754,13 +754,13 @@ export type ExperienceSlice = prismic.SharedSlice<
 /**
  * Primary content in *Hero → Primary*
  */
-export interface HEroSliceDefaultPrimary {
+export interface HeroSliceDefaultPrimary {
   /**
    * First Name field in *Hero → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: h_ero.primary.first_name
+   * - **API ID Path**: hero.primary.first_name
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   first_name: prismic.KeyTextField;
@@ -770,7 +770,7 @@ export interface HEroSliceDefaultPrimary {
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: h_ero.primary.last_name
+   * - **API ID Path**: hero.primary.last_name
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   last_name: prismic.KeyTextField;
@@ -780,7 +780,7 @@ export interface HEroSliceDefaultPrimary {
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: h_ero.primary.tag_line
+   * - **API ID Path**: hero.primary.tag_line
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   tag_line: prismic.KeyTextField;
@@ -793,25 +793,25 @@ export interface HEroSliceDefaultPrimary {
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HEroSliceDefault = prismic.SharedSliceVariation<
+export type HeroSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<HEroSliceDefaultPrimary>,
+  Simplify<HeroSliceDefaultPrimary>,
   never
 >;
 
 /**
  * Slice variation for *Hero*
  */
-type HEroSliceVariation = HEroSliceDefault;
+type HeroSliceVariation = HeroSliceDefault;
 
 /**
  * Hero Shared Slice
  *
- * - **API ID**: `h_ero`
- * - **Description**: HEro
+ * - **API ID**: `hero`
+ * - **Description**: Hero
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HEroSlice = prismic.SharedSlice<"h_ero", HEroSliceVariation>;
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
  * Primary content in *ImageBlock → Primary*
@@ -1012,10 +1012,10 @@ declare module "@prismicio/client" {
       ExperienceSliceDefaultItem,
       ExperienceSliceVariation,
       ExperienceSliceDefault,
-      HEroSlice,
-      HEroSliceDefaultPrimary,
-      HEroSliceVariation,
-      HEroSliceDefault,
+      HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceVariation,
+      HeroSliceDefault,
       ImageBlockSlice,
       ImageBlockSliceDefaultPrimary,
       ImageBlockSliceVariation,
