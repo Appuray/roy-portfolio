@@ -25,8 +25,7 @@ export function Shapes() {
             blur={1}
             far={9}
           />
-          <Environment preset="studio" /> // Environment light "its put the
-          livein 3d Shapes"
+          <Environment preset="studio" />
         </Suspense>
       </Canvas>
     </div>
@@ -38,27 +37,27 @@ function Geometries() {
     {
       position: [0, 0, 0],
       r: 0.3,
-      geometry: new THREE.IcosahedronGeometry(3), // Gem
+      geometry: new THREE.IcosahedronGeometry(3),
     },
     {
       position: [1, -0.75, 4],
       r: 0.4,
-      geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16), // pill
+      geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16),
     },
     {
       position: [-1.4, 2, -4],
       r: 0.6,
-      geometry: new THREE.DodecahedronGeometry(1.5), // ball
+      geometry: new THREE.DodecahedronGeometry(1.5),
     },
     {
       position: [-0.8, -0.75, 5],
       r: 0.3,
-      geometry: new THREE.TorusGeometry(0.6, 0.25, 16, 32), // donut
+      geometry: new THREE.TorusGeometry(0.6, 0.25, 16, 32),
     },
     {
       position: [1.6, 1.6, -4],
       r: 0.7,
-      geometry: new THREE.OctahedronGeometry(1.5), // diamond
+      geometry: new THREE.OctahedronGeometry(1.5),
     },
   ];
 
@@ -70,7 +69,7 @@ function Geometries() {
 
   const materials = [
     new THREE.MeshNormalMaterial(),
-    new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0 }), // change the color '0x-"whatever color you want"'
+    new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0 }),
     new THREE.MeshStandardMaterial({ color: 0xf1c40f, roughness: 0.4 }),
     new THREE.MeshStandardMaterial({ color: 0xe74c3c, roughness: 0.1 }),
     new THREE.MeshStandardMaterial({ color: 0x8e44ad, roughness: 0.1 }),
@@ -146,7 +145,7 @@ function Geometry({ r, position, geometry, soundEffects, materials }) {
         delay: gsap.utils.random(0, 0.5),
       });
     });
-    return () => ctx.revert(); // cleanup
+    return () => ctx.revert();
   }, []);
 
   return (
