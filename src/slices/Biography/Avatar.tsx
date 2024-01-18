@@ -64,7 +64,6 @@ export default function Avatar({ image, className }: AvatarProps) {
     <div ref={component} className={clsx("relative h-full w-full", className)}>
       <div
         className="avatar aspect-square overflow-hidden rounded-3xl border-2 border-slate-700 opacity-0"
-        style={{ perspective: "500px", perspectiveOrigin: "150% 150%" }}
       >
         <PrismicNextImage
           field={image}
