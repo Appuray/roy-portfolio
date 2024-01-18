@@ -752,11 +752,11 @@ export type ExperienceSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *HEro → Primary*
+ * Primary content in *Hero → Primary*
  */
 export interface HEroSliceDefaultPrimary {
   /**
-   * First Name field in *HEro → Primary*
+   * First Name field in *Hero → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -766,7 +766,7 @@ export interface HEroSliceDefaultPrimary {
   first_name: prismic.KeyTextField;
 
   /**
-   * Last Name field in *HEro → Primary*
+   * Last Name field in *Hero → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -776,7 +776,7 @@ export interface HEroSliceDefaultPrimary {
   last_name: prismic.KeyTextField;
 
   /**
-   * Tag Line field in *HEro → Primary*
+   * Tag Line field in *Hero → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -787,7 +787,7 @@ export interface HEroSliceDefaultPrimary {
 }
 
 /**
- * Default variation for HEro Slice
+ * Default variation for Hero Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -800,12 +800,12 @@ export type HEroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *HEro*
+ * Slice variation for *Hero*
  */
 type HEroSliceVariation = HEroSliceDefault;
 
 /**
- * HEro Shared Slice
+ * Hero Shared Slice
  *
  * - **API ID**: `h_ero`
  * - **Description**: HEro

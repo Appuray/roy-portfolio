@@ -9,12 +9,12 @@ import gsap from "gsap";
 /**
  * Props for `Hero`.
  */
-export type HEroProps = SliceComponentProps<Content.HEroSlice>;
+export type HeroProps = SliceComponentProps<Content.HEroSlice>;
 
 /**
  * Component for "Hero" Slices.
  */
-const Hero = ({ slice }: HEroProps): JSX.Element => {
+const Hero = ({ slice }: HeroProps): JSX.Element => {
   const component = useRef(null);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const Hero = ({ slice }: HEroProps): JSX.Element => {
             duration: 1,
             transformOrigin: "left top",
             stagger: { each: 0.1, from: "random" },
-          }
+          },
         )
         .fromTo(
           ".job-title",
@@ -49,7 +49,7 @@ const Hero = ({ slice }: HEroProps): JSX.Element => {
             duration: 1,
             scale: 1,
             ease: "elastic.out(1,0.3)",
-          }
+          },
         );
     }, component);
     return () => ctx.revert(); // cleanup!
